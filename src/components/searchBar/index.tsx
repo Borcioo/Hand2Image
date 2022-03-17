@@ -24,7 +24,10 @@ const SearchBar = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     onChange(input)
-    navigate(`/results`)
+    navigate({
+      pathname: "/results",
+      search: `?q=${input}`,
+    })
   }
   const handleReset = (e: { stopPropagation: () => void }) => {
     e.stopPropagation()
