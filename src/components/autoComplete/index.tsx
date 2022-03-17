@@ -5,6 +5,7 @@ import BeatLoader from "react-spinners/BeatLoader"
 
 interface Props {
   input: string
+  setInput: React.Dispatch<React.SetStateAction<string>>
 }
 
 interface AutoCompleteData {
@@ -19,7 +20,7 @@ export interface Hints {
 }
 
 const AutoComplete = (props: Props) => {
-  const { input } = props
+  const { input, setInput } = props
   const [hints, setHints] = useState<Hints[] | undefined | []>([])
 
   const onSuccess = (data: AutoCompleteData) => {
@@ -62,7 +63,7 @@ const AutoComplete = (props: Props) => {
     return <p>Brak wyników...</p>
   }
 
-  return <AutoCompleteHints reset={setHints} data={hints} />
+  return <AutoCompleteHints setInput={setInput} reset={setHints} data={hints} />
 }
 
 export default AutoComplete

@@ -10,14 +10,16 @@ interface Hints {
 interface Props {
   data: Hints[]
   reset: React.Dispatch<React.SetStateAction<[] | Hints[] | undefined>>
+  setInput: React.Dispatch<React.SetStateAction<string>>
 }
 
 const AutoCompleteHints = (props: Props) => {
-  const { data, reset } = props
+  const { data, reset, setInput } = props
   const { onChange } = useSearchContext()
 
-  const handleClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, query: string) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, query: string) => {
     onChange(query)
+    setInput("")
     reset([])
   }
 
@@ -26,12 +28,13 @@ const AutoCompleteHints = (props: Props) => {
       {data?.map((item: Hints, i: number) => {
         return (
           <Link
+            onClick={(e) => handleClick(e, item.query)}
             key={i}
             to={{
               pathname: "/results",
               search: `?q=${item.query}`,
             }}>
-            <li onClick={(e) => handleClick(e, item.query)}>{item.query}</li>
+            <li>{item.query}</li>
           </Link>
         )
       })}

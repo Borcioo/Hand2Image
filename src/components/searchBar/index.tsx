@@ -42,7 +42,7 @@ const SearchBar = () => {
         <IconInput value={input} onChange={(e) => setInput(e.target.value)} reset={(e) => handleReset(e)} icon={<SearchIcon />} />
       </form>
       <div className='hints' ref={ref}>
-        <AutoComplete input={input} />
+        <AutoComplete setInput={setInput} input={input} />
       </div>
     </div>
   )
