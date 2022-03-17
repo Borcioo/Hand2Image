@@ -13,7 +13,7 @@ export interface Hints {
 }
 
 const fetchAutoComplete = (input: string) => {
-  return requestHint({ url: `/${input}` })
+  return requestHint({ url: `/api/${input}` })
 }
 
 export const useAutoComplete = (onSuccess: (data: AutoCompleteData) => void, onError: (data: []) => void, input: string) => {
