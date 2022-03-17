@@ -170,19 +170,31 @@ input:focus-visible.searchBar {
   grid-auto-rows: 250px;
   grid-auto-flow: dense;
 }
-.grid-wrapper .wide {
-  grid-column: span 2;
-}
 .grid-wrapper .tall {
   grid-row: span 2;
 }
-.grid-wrapper .big {
-  grid-column: span 2;
-  grid-row: span 2;
+
+.grid-wrapper .wide {
+  grid-column: span 1;
 }
+.grid-wrapper .big {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
 .grid-wrapper .small {
   grid-column: span 1;
   grid-row: span 1;
+}
+
+@media (min-width: 768px) {
+  .grid-wrapper .wide {
+    grid-column: span 2;
+  }
+  .grid-wrapper .big {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
 }
 
 .header-container {
