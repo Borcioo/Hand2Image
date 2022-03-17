@@ -1,13 +1,13 @@
 import React from "react"
 
-interface IconInput {
+interface IconInputProps {
   value: string
   onChange: React.ChangeEventHandler<HTMLInputElement>
   icon: React.ReactNode
   reset: (e: { stopPropagation: () => void }) => void
 }
 
-const IconInput = (props: IconInput) => {
+const IconInput = (props: IconInputProps) => {
   const { value, onChange, icon, reset } = props
 
   return (
