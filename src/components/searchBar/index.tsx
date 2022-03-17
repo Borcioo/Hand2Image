@@ -1,4 +1,4 @@
-import { FormEvent, SetStateAction, useEffect, useRef, useState } from "react"
+import { FormEvent, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import AutoComplete from "../../components/autoComplete"
 import { useSearchContext } from "../../contexts/SearchContext"

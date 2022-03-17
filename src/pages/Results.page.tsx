@@ -18,7 +18,7 @@ const Results = () => {
 
   const query = value || search.get("q")
 
-  const { isLoading, data, fetchNextPage } = useSearchImages(query)
+  const { isLoading, data, fetchNextPage, hasNextPage } = useSearchImages(query)
 
   return (
     <>
@@ -31,7 +31,7 @@ const Results = () => {
         <h1>{query}</h1>
       </nav>
       <main>
-        <Gallery fetchNextPage={fetchNextPage} isLoading={isLoading} data={data as unknown as Pages} />
+        <Gallery hasNextPage={hasNextPage} fetchNextPage={fetchNextPage} isLoading={isLoading} data={data as unknown as Pages} />
       </main>
     </>
   )
